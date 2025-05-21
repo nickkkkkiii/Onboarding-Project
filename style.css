@@ -137,6 +137,11 @@ body {
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
 }
 
+.dark-mode .container {
+  background: #616161;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
 .dark-mode a {
   color: #4da6ff;
 }
