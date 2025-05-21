@@ -23,6 +23,21 @@ h1 {
   color: #2c3e50;
   font-size: 24px;
   margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+h2 {
+  color: #2c3e50;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+h5 {
+  color: #2c3e50;
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 p {
@@ -33,6 +48,7 @@ p {
 ul {
   list-style: none;
   padding: 0;
+  margin-bottom: 30px;
 }
 
 ul li {
@@ -65,10 +81,10 @@ button:hover {
 
 .card {
   background: white;
-  padding: 20px;
+  padding: 5px 20px 20px 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 dl dt {
@@ -83,4 +99,125 @@ dl dd {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Отступ после кнопок */
+}
+
+.header-buttons button {
+  margin-right: 10px; /* Отступ между кнопками */
+}
+
+/* === Тёмная тема через класс .dark-mode === */
+.dark-mode body {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .card {
+  background: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode a {
+  color: #4da6ff;
+}
+
+.dark-mode button {
+  background-color: #4da6ff;
+  color: black;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3 {
+  color: #ffffff;
+}
+
+.dark-mode li,
+.dark-mode dl,
+.dark-mode p {
+  color: #d4d4d4;
+}
+
+/* === Стили для переключателя темы === */
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #1e90ff; /* Цвет активного состояния */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Символы для темы */
+.slider::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  line-height: 26px;
+}
+
+.slider::before {
+  content: "☀️"; /* Луну с звёздами */
+}
+
+input:checked + .slider::before {
+  content: "🌙"; /* Солнце */
 }
