@@ -309,6 +309,33 @@ body {
   color: #E97C01;
 }
 
+.scrollable-table-container {
+  max-height: 300px; /* Максимальная высота таблицы */
+  overflow-y: auto;   /* Вертикальный скролл */
+  overflow-x: auto;   /* Горизонтальный скролл */
+  margin-top: 10px;
+}
+
+/* Плавный скролл на iOS */
+.scrollable-table-container {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Необязательно: стилизуем полосы прокрутки */
+.scrollable-table-container::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.scrollable-table-container::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+
+.dark-mode .scrollable-table-container::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
 /* === Стили для переключателя темы === */
 
 .theme-switch {
