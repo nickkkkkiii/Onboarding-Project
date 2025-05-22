@@ -273,6 +273,42 @@ body {
   color: #E97C01;
 }
 
+.scrollable-table {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+  max-width: 100%;
+}
+
+.employees-table {
+  min-width: 600px; /* Минимальная ширина, чтобы активировать скролл на маленьких экранах */
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.employees-table th,
+.employees-table td {
+  padding: 12px 16px;
+  white-space: nowrap; /* Чтобы текст не переносился и таблица оставалась компактной */
+  text-align: left;
+}
+
+.employees-table th {
+  background-color: #f5f7fa;
+}
+
+.employees-table td a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.dark-mode .employees-table th {
+  background-color: #2c2c2c;
+}
+
+.dark-mode .employees-table td a {
+  color: #E97C01;
+}
+
 /* === Стили для переключателя темы === */
 
 .theme-switch {
