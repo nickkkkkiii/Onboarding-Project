@@ -328,12 +328,12 @@ body {
 }
 
 .scrollable-table-container::-webkit-scrollbar-thumb {
-  background: #aaa;
+  background: #1e8fff69;
   border-radius: 4px;
 }
 
 .dark-mode .scrollable-table-container::-webkit-scrollbar-thumb {
-  background: #555;
+  background: #e97d0173;
 }
 
 /* === Стили для переключателя темы === */
