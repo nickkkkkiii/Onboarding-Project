@@ -197,6 +197,10 @@ function showEmployees() {
     <div class="container">
       <div class="header-buttons">
         <button onclick="showWelcomeScreen()" style="margin-right: 10px;">Назад</button>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle" onclick="toggleDarkMode()" ${isDark ? 'checked' : ''}>
+          <div class="slider round"></div>
+        </label>
       </div>
 
       <div class="breadcrumbs">
@@ -208,16 +212,17 @@ function showEmployees() {
         <h1>Сотрудники</h1>
         <p>Сотрудники практики:</p>
 
-        <table class="employees-table">
-          <thead>
-            <tr>
-              <th>ФИО</th>
-              <th>Роль</th>
-              <th>Проект</th>
-              <th>Telegram</th>
-            </tr>
-          </thead>
-          <tbody>
+          <div class="scrollable-table">
+          <table class="employees-table">
+            <thead>
+              <tr>
+                <th>ФИО</th>
+                <th>Роль</th>
+                <th>Проект</th>
+                <th>Telegram</th>
+              </tr>
+            </thead>
+            <tbody>
   `;
 
   employees.forEach(emp => {
@@ -244,7 +249,8 @@ function showEmployees() {
         </table>
       </div>
     </div>
-    <div class="footer-text">практика развития клиентских путей</div>
+   </div>
+   <div class="footer-text">практика развития клиентских путей</div>
   `;
 
   document.getElementById("app").innerHTML = html;
