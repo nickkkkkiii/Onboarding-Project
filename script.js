@@ -212,7 +212,7 @@ function showEmployees() {
         <h1>Сотрудники</h1>
         <p>Сотрудники практики:</p>
 
-          <div class="scrollable-table">
+        <div class="scrollable-table-container">
           <table class="employees-table">
             <thead>
               <tr>
@@ -229,10 +229,9 @@ function showEmployees() {
     const projectName = emp.project ? projectData[emp.project]?.name : "Без проекта";
     const projectId = emp.project ? emp.project : null;
 
-    // Если есть проект — делаем его кликабельным
     const projectLink = projectId
-    ? `<a href="#" onclick="showProject('${projectId}', 'from-employees')">${projectName}</a>`
-    : projectName;
+      ? `<a href="#" onclick="showProject('${projectId}', 'from-employees')">${projectName}</a>`
+      : projectName;
 
     html += `
       <tr>
@@ -245,12 +244,12 @@ function showEmployees() {
   });
 
   html += `
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-   </div>
-   <div class="footer-text">практика развития клиентских путей</div>
+    <div class="footer-text">практика развития клиентских путей</div>
   `;
 
   document.getElementById("app").innerHTML = html;
