@@ -236,104 +236,82 @@ body {
   color: #E97C01;
 }
 
-.employees-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+.employees-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
-.employees-table th,
-.employees-table td {
-  font-size: 14px;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
+.employee-card {
+  background-color: #f9f9f9;
+  border-left: 4px solid #1e90ff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  line-height: 1.5;
 }
 
-.employees-table th {
-  background-color: #f0f0f0;
-}
-
-.dark-mode .employees-table th {
+.dark-mode .employee-card {
   background-color: #2c2c2c;
-}
-
-.dark-mode .employees-table td,
-.dark-mode .employees-table th {
-  border-color: #444;
+  border-left-color: #E97C01;
   color: #e0e0e0;
 }
 
-.employees-table a {
+.employee-card strong {
+  color: #666;
+}
+
+.dark-mode .employee-card strong {
+  color: #bbb;
+}
+
+.employee-card a {
   color: #1e90ff;
   text-decoration: none;
 }
 
-.dark-mode .employees-table a {
+.dark-mode .employee-card a {
   color: #E97C01;
 }
 
-.scrollable-table {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
-  max-width: 100%;
-}
-
-.employees-table {
-  min-width: 600px; /* Минимальная ширина, чтобы активировать скролл на маленьких экранах */
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.employees-table th,
-.employees-table td {
+.employee-card {
+  background-color: #f9f9f9;
+  border-left: 4px solid #1e90ff;
   padding: 12px 16px;
-  white-space: nowrap; /* Чтобы текст не переносился и таблица оставалась компактной */
-  text-align: left;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  line-height: 1.5;
+  transition: all 0.3s ease;
 }
 
-.employees-table th {
-  background-color: #f5f7fa;
-}
-
-.employees-table td a {
-  color: #1e90ff;
-  text-decoration: none;
-}
-
-.dark-mode .employees-table th {
+.dark-mode .employee-card {
   background-color: #2c2c2c;
+  border-left-color: #E97C01;
+  color: #e0e0e0;
 }
 
-.dark-mode .employees-table td a {
-  color: #E97C01;
+.employee-header {
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.scrollable-table-container {
-  max-height: 300px; /* Максимальная высота таблицы */
-  overflow-y: auto;   /* Вертикальный скролл */
-  overflow-x: auto;   /* Горизонтальный скролл */
-  margin-top: 10px;
+.toggle-icon {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
 }
 
-/* Плавный скролл на iOS */
-.scrollable-table-container {
-  -webkit-overflow-scrolling: touch;
+.employee-card.open .toggle-icon {
+  transform: rotate(180deg);
 }
 
-/* Необязательно: стилизуем полосы прокрутки */
-.scrollable-table-container::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
-}
-
-.scrollable-table-container::-webkit-scrollbar-thumb {
-  background: #1e8fff69;
-  border-radius: 4px;
-}
-
-.dark-mode .scrollable-table-container::-webkit-scrollbar-thumb {
-  background: #e97d0173;
+.dark-mode .toggle-icon {
+  color: #aaa;
 }
 
 /* === Стили для переключателя темы === */
