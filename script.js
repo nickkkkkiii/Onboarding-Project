@@ -1,3 +1,17 @@
+function toggleEmployeeCard(header) {
+  const card = header.parentElement;
+  const details = card.querySelector('.employee-details');
+  const icon = card.querySelector('.toggle-icon');
+
+  if (details.style.display === 'none') {
+    details.style.display = 'block';
+    card.classList.add('open');
+  } else {
+    details.style.display = 'none';
+    card.classList.remove('open');
+  }
+}
+
 function goBack() {
   const lastSource = localStorage.getItem('lastSource');
 
@@ -212,40 +226,37 @@ function showEmployees() {
         <h1>Сотрудники</h1>
         <p>Сотрудники практики:</p>
 
-        <div class="scrollable-table-container">
-          <table class="employees-table">
-            <thead>
-              <tr>
-                <th>ФИО</th>
-                <th>Роль</th>
-                <th>Проект</th>
-                <th>Telegram</th>
-              </tr>
-            </thead>
-            <tbody>
+        <div class="employees-list">
   `;
 
   employees.forEach(emp => {
-    const projectName = emp.project ? projectData[emp.project]?.name : "Без проекта";
+    const projectName = emp.project ? projectData[emp.project]?.name || "Без проекта" : "Без проекта";
     const projectId = emp.project ? emp.project : null;
 
     const projectLink = projectId
-      ? `<a href="#" onclick="showProject('${projectId}', 'from-employees')">${projectName}</a>`
-      : projectName;
+      ? `<div><strong>Проект:</strong> <a href="#" onclick="showProject('${projectId}', 'from-employees')">${projectName}</a></div>`
+      : `<div><strong>Проект:</strong> Без проекта</div>`;
 
     html += `
-      <tr>
-        <td>${emp.name}</td>
-        <td>${emp.role}</td>
-        <td>${projectLink}</td>
-        <td><a href="${emp.telegram}">${emp.telegram}</a></td>
-      </tr>
+      <div class="employee-card">
+        <div class="employee-header" onclick="toggleEmployeeCard(this)">
+          ${emp.name}
+          <span class="toggle-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12L12 19L19 12" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <div class="employee-details" style="display: none;">
+          <div><strong>Роль:</strong> ${emp.role}</div>
+          ${projectLink}
+          <div><strong>Telegram:</strong> <a href="${emp.telegram}">${emp.telegram}</a></div>
+        </div>
+      </div>
     `;
   });
 
   html += `
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
