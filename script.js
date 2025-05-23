@@ -88,9 +88,9 @@ function showWelcomeScreen() {
       <div class="card">
         <h2>Выбери проект!</h2>
         <p>Выберите ваш проект, чтобы получить всю необходимую информацию: ссылки, контакты, FAQ и многое другое.</p>
-        <button onclick="showProjectList()">Выбрать проект</button>
+        <button class="main-button" onclick="showProjectList()">Выбрать проект</button>
         <div class="button-spacing"></div>
-        <button onclick="showEmployees()">Все сотрудники</button>
+        <button class="main-button" onclick="showEmployees()">Все сотрудники</button>
       </div>
     </div>
     <div class="footer-text">практика развития клиентских путей</div>
