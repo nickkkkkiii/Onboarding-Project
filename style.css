@@ -522,7 +522,6 @@ input:checked + .slider::before {
   text-align: center;
   margin-top: 10px;
   padding: 10px;
-  border-radius: 4px;
   letter-spacing: 1px;
 }
 
