@@ -72,6 +72,42 @@ a:hover {
   margin-top: 10px;
 }
 
+.main-button {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+/* Светлая тема */
+.main-button {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.main-button:hover {
+  background-color: #e8f0fe;
+  color: #1E90FF;
+}
+
+/* Тёмная тема */
+.dark-mode .main-button {
+  background-color: #E97C01;
+  color: black;
+  font-weight: 500;
+}
+
+.dark-mode .main-button:hover {
+  background-color: #E97C01;
+  color: #E97C01 !important;
+}
+
 button {
   padding: 12px 20px;
   background-color: #1e90ff;
@@ -84,7 +120,8 @@ button {
 }
 
 button:hover {
-  background-color: #3a87d4;
+  background-color: #e8f0fe;
+  color: #1E90FF;
 }
 
 /* === Стили для кнопок в тёмной теме === */
@@ -100,18 +137,20 @@ button:hover {
 /* === Стили для кнопок проектов === */
 .project-button {
   width: 100%;
-  padding: 12px 16px;
-  background-color: #1E90FF; /* Прозрачный фон */
-  color: #ffffff; /* Цвет текста */
+  padding: 14px 20px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
-  font-size: 14px;
-  text-align: left;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  margin-top: 10px;
 }
 
 .project-button:hover {
   background-color: #e8f0fe;
-  color: #1E90FF; /* Цвет текста */
+  color: #1E90FF;
 }
 
 /* === Темная тема для .project-button === */
