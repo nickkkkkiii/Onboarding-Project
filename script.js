@@ -75,10 +75,12 @@ function showWelcomeScreen() {
     <div class="container">
       <div class="header-buttons">
         <h5>Добро пожаловать в ПРКП!</h5>
-        <label class="theme-switch">
-          <input type="checkbox" id="theme-toggle" onclick="toggleDarkMode()">
-          <div class="slider round"></div>
-        </label>
+        <div class="theme-switch-container">
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" onclick="toggleDarkMode()" ${isDark ? 'checked' : ''}>
+            <div class="slider round"></div>
+          </label>
+        </div>
       </div>
       <div class="breadcrumbs">
         <span>Главная</span>
