@@ -165,36 +165,41 @@ function showProject(id, source) {
   let html = `
     <div class="container">
       <div class="header-buttons">
-        <button onclick="goBack()" style="margin-right: 10px;">Назад</button>
+        <button onclick="goBack()" style="margin-right: 10px;">← Назад</button>
         <label class="theme-switch">
           <input type="checkbox" id="theme-toggle" onclick="toggleDarkMode()" ${isDark ? 'checked' : ''}>
           <div class="slider round"></div>
         </label>
       </div>
 
-      ${breadcrumbsHtml}
+      <div class="breadcrumbs">
+        <a href="#" onclick="showWelcomeScreen()">Главная</a> → 
+        <a href="#" onclick="showProjectList()">Все проекты</a> → 
+        <span>${project.name}</span>
+      </div>
 
       <div class="card">
         <h1>${project.name}</h1>
-        <p><strong>Описание:</strong> ${project.description}</p>
 
-        <h3>🔗 Полезные ссылки</h3>
-        <ul>
-          ${project.links.map(link => `<li><a href="${link.url}" target="_blank">${link.title}</a></li>`).join("")}
-        </ul>
+        <!-- Контейнер с прокруткой -->
+        <div class="project-details-container">
+          <p><strong>Описание:</strong> ${project.description}</p>
 
-        <h3>📞 Контакты</h3>
-        <ul>
-          ${project.contacts.map(contact => `<li><b>${contact.name}</b> (${contact.role}): ${contact.telegram}</li>`).join("")}
-        </ul>
+          <h3>🔗 Полезные ссылки</h3>
+          <ul>
+            ${project.links.map(link => `<li><a href="${link.url}" target="_blank">${link.title}</a></li>`).join("")}
+          </ul>
 
-        <h3>❓ Частые вопросы</h3>
-        <dl>
-          ${project.faq.map(faq => `
-            <dt>${faq.q}</dt>
-            <dd class="faq-answer">${faq.a}</dd>
-          `).join("")}
-        </dl>
+          <h3>📞 Контакты</h3>
+          <ul>
+            ${project.contacts.map(contact => `<li><b>${contact.name}</b> (${contact.role}): ${contact.telegram}</li>`).join("")}
+          </ul>
+
+          <h3>❓ Частые вопросы</h3>
+          <dl>
+            ${project.faq.map(faq => `<dt>${faq.q}</dt><dd>${faq.a}</dd>`).join("")}
+          </dl>
+        </div>
       </div>
     </div>
     <div class="footer-text">практика развития клиентских путей</div>
