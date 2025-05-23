@@ -11,17 +11,17 @@ function getRoleColor(role) {
   }
 }
 
-function toggleEmployeeCard(header) {
-  const card = header.parentElement;
+function toggleEmployeeCard(element) {
+  const card = element.closest('.employee-card');
   const details = card.querySelector('.employee-details');
-  const icon = card.querySelector('.toggle-icon');
+  const icon = card.querySelector('.toggle-icon'); // если есть иконка
 
   if (details.style.display === 'none') {
     details.style.display = 'block';
-    card.classList.add('open');
+    if (icon) icon.style.transform = 'rotate(90deg)';
   } else {
     details.style.display = 'none';
-    card.classList.remove('open');
+    if (icon) icon.style.transform = 'rotate(0deg)';
   }
 }
 
@@ -259,9 +259,11 @@ function showEmployees() {
       : `Без проекта`;
 
     html += `
-      <div class="employee-card" onclick="toggleEmployeeCard(this)">
+      <div class="employee-card">
         <div class="role-badge ${roleColor}">${roleName}</div>
-        <div class="employee-name"><strong>${emp.name}</strong></div>
+        <div class="employee-name" onclick="toggleEmployeeCard(this)">
+          <strong>${emp.name}</strong>
+        </div>
         
         <div class="employee-details" style="display: none;">
           <div><strong>Роль:</strong> ${emp.role}</div>
