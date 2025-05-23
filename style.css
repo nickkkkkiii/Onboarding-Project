@@ -314,6 +314,31 @@ body {
   color: #aaa;
 }
 
+.project-details-container {
+  max-height: 400px; /* Максимальная высота */
+  overflow-y: auto;   /* Вертикальный скролл */
+  padding-right: 10px;
+}
+
+/* Плавный скролл на iOS */
+.project-details-container {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Стилизация полосы прокрутки (опционально) */
+.project-details-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-details-container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+.dark-mode .project-details-container::-webkit-scrollbar-thumb {
+  background-color: #555;
+}
+
 /* === Стили для переключателя темы === */
 
 .theme-switch {
