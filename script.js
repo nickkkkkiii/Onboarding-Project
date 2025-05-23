@@ -1,3 +1,16 @@
+function getRoleColor(role) {
+  switch (role) {
+    case "Директор практики":
+      return "red-badge";
+    case "Менеджер портфеля":
+      return "yellow-badge";
+    case "Архитектор":
+      return "green-badge";
+    default:
+      return "blue-badge";
+  }
+}
+
 function toggleEmployeeCard(header) {
   const card = header.parentElement;
   const details = card.querySelector('.employee-details');
@@ -235,26 +248,24 @@ function showEmployees() {
   `;
 
   employees.forEach(emp => {
+    const roleName = emp.role; // Не делаем uppercase, если не нужно
+    const roleColor = getRoleColor(roleName);
+
     const projectName = emp.project ? projectData[emp.project]?.name || "Без проекта" : "Без проекта";
     const projectId = emp.project ? emp.project : null;
 
     const projectLink = projectId
-      ? `<div><strong>Проект:</strong> <a href="#" onclick="showProject('${projectId}', 'from-employees')">${projectName}</a></div>`
-      : `<div><strong>Проект:</strong> Без проекта</div>`;
+      ? `<a href="#" onclick="showProject('${projectId}', 'from-employees')">${projectName}</a>`
+      : `Без проекта`;
 
     html += `
-      <div class="employee-card">
-        <div class="employee-header" onclick="toggleEmployeeCard(this)">
-          ${emp.name}
-          <span class="toggle-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12L12 19L19 12" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </div>
+      <div class="employee-card" onclick="toggleEmployeeCard(this)">
+        <div class="role-badge ${roleColor}">${roleName}</div>
+        <div class="employee-name"><strong>${emp.name}</strong></div>
+        
         <div class="employee-details" style="display: none;">
           <div><strong>Роль:</strong> ${emp.role}</div>
-          ${projectLink}
+          <div><strong>Проект:</strong> ${projectLink}</div>
           <div><strong>Telegram:</strong> <a href="${emp.telegram}">${emp.telegram}</a></div>
         </div>
       </div>
