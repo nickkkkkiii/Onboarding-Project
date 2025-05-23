@@ -18,7 +18,7 @@ function toggleEmployeeCard(element) {
 
   if (details.style.display === 'none') {
     details.style.display = 'block';
-    if (icon) icon.style.transform = 'rotate(90deg)';
+    if (icon) icon.style.transform = 'rotate(180deg)';
   } else {
     details.style.display = 'none';
     if (icon) icon.style.transform = 'rotate(0deg)';
@@ -178,7 +178,7 @@ function showProject(id, source) {
   let html = `
     <div class="container">
       <div class="header-buttons">
-        <button onclick="goBack()" style="margin-right: 10px;">← Назад</button>
+        <button onclick="goBack()" style="margin-right: 10px;">Назад</button>
         <label class="theme-switch">
           <input type="checkbox" id="theme-toggle" onclick="toggleDarkMode()" ${isDark ? 'checked' : ''}>
           <div class="slider round"></div>
@@ -259,12 +259,19 @@ function showEmployees() {
       : `Без проекта`;
 
     html += `
-      <div class="employee-card">
+      <div class="employee-card" onclick="toggleEmployeeCard(this)">
         <div class="role-badge ${roleColor}">${roleName}</div>
-        <div class="employee-name" onclick="toggleEmployeeCard(this)">
-          <strong>${emp.name}</strong>
-        </div>
         
+        <div class="employee-header">
+          <strong>${emp.name}</strong>
+          
+          <span class="toggle-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12L12 19L19 12" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+
         <div class="employee-details" style="display: none;">
           <div><strong>Роль:</strong> ${emp.role}</div>
           <div><strong>Проект:</strong> ${projectLink}</div>
